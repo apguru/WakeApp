@@ -4,4 +4,5 @@ module com.example.wakeapp {
     requires org.kordamp.bootstrapfx.core;
     requires org.json;
     exports com.example.wakeapp;
+    opens com.example.wakeapp to javafx.fxml;
 }

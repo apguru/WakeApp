@@ -17,7 +17,7 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <TextField id="arrivalTime" fx:id="ankunftszeit" layoutX="266.0" layoutY="116.0" onAction="#handleButtonBerechnen" promptText="Uhrzeit">
+        <TextField id="arrivalTime" fx:id="arrivalTime" layoutX="266.0" layoutY="116.0" promptText="Uhrzeit">
             <font>
                 <Font size="24.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <TextField id="startLocation" fx:id="standort" layoutX="266.0" layoutY="282.0" onAction="#handleButtonBerechnen" promptText="Adresse">
+        <TextField id="startLocation" fx:id="startLocation" layoutX="266.0" layoutY="282.0" promptText="Adresse">
             <font>
                 <Font size="24.0" />
             </font>
@@ -52,7 +52,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField id="destinationLocation" fx:id="zielort" layoutX="266.0" layoutY="353.0" onAction="#handleButtonBerechnen" promptText="Adresse">
+      <TextField id="destinationLocation" fx:id="destinationLocation" layoutX="266.0" layoutY="353.0" promptText="Adresse">
          <font>
             <Font size="24.0" />
          </font>

@@ -8,15 +8,15 @@ import javafx.scene.layout.HBox;
 
 public class IndexController {
 
-    @FXML private TextField standort;
-    @FXML private TextField zielort;
-    @FXML private TextField ankunftszeit;
+    @FXML public TextField startLocation;
+    @FXML public TextField destinationLocation;
+    @FXML public TextField arrivalTime;
 
     @FXML
     private void handleButtonBerechnen(ActionEvent event) {
-        System.out.println("Standort:" + standort.getText());
-        System.out.println("Zielort:" + zielort.getText());
-        System.out.println("Ankuftszeit:" + ankunftszeit.getText());
+        System.out.println("Standort:" + startLocation.getText());
+        System.out.println("Zielort:" + destinationLocation.getText());
+        System.out.println("Ankuftszeit:" + arrivalTime.getText());
     }
 
 
