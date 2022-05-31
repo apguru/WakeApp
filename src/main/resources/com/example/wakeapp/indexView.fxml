@@ -17,7 +17,7 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <TextField id="arrivalTime" layoutX="266.0" layoutY="116.0" promptText="Uhrzeit">
+        <TextField id="arrivalTime" fx:id="ankunftszeit" layoutX="266.0" layoutY="116.0" onAction="#handleButtonBerechnen" promptText="Uhrzeit">
             <font>
                 <Font size="24.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <TextField id="startLocation" layoutX="266.0" layoutY="282.0" promptText="Adresse">
+        <TextField id="startLocation" fx:id="standort" layoutX="266.0" layoutY="282.0" onAction="#handleButtonBerechnen" promptText="Adresse">
             <font>
                 <Font size="24.0" />
             </font>
@@ -52,7 +52,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField id="destinationLocation" layoutX="266.0" layoutY="353.0" promptText="Adresse">
+      <TextField id="destinationLocation" fx:id="zielort" layoutX="266.0" layoutY="353.0" onAction="#handleButtonBerechnen" promptText="Adresse">
          <font>
             <Font size="24.0" />
          </font>
@@ -79,7 +79,7 @@
             </RadioButton>
          </children>
       </HBox>
-      <Button layoutX="35.0" layoutY="529.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="531.0" style="-fx-background-color: rgb(255,0,0);" text="BERECHNEN">
+      <Button layoutX="35.0" layoutY="529.0" mnemonicParsing="false" onAction="#handleButtonBerechnen" prefHeight="46.0" prefWidth="531.0" style="-fx-background-color: rgb(255,0,0);" text="BERECHNEN">
          <font>
             <Font size="24.0" />
          </font>
