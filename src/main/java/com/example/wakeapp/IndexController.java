@@ -27,6 +27,11 @@ public class IndexController {
     @FXML private TextField startLocation;
     @FXML private TextField destinationLocation;
     @FXML private TextField arrivalTime;
+    @FXML private TextField prepTime;
+    @FXML private Label hours_answer;
+    @FXML private Label minutes_answer;
+    @FXML private Label hours_label;
+    @FXML private Label minutes_label;
 
     @FXML
     private void handleButtonBerechnen(ActionEvent event) throws IOException {
@@ -49,9 +54,11 @@ public class IndexController {
 
         JSONObject tripTime = getTripTimeFromAPI(endJSON);
 
-        ResultController rc = new ResultController();
-        rc.ResultController();
-        //rc.setHours(tripTime.getString("hours"));
+        hours_label.setText("Stunden");
+        minutes_label.setText("Minuten");
+
+        hours_answer.setText(tripTime.getString("hours"));
+        minutes_answer.setText(tripTime.getString("minutes"));
     }
 
     private JSONObject getTripTimeFromAPI(JSONObject endJSON) {
@@ -75,8 +82,6 @@ public class IndexController {
                 }
             };
             String responseBody = httpClient.execute(httpPost, responseHandler);
-            System.out.println("----------------------------------------");
-            System.out.println(responseBody);
             JSONObject responseJSON = new JSONObject(responseBody);
             return responseJSON;
         } catch (IOException e) {
