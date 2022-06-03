@@ -2,7 +2,13 @@ package com.example.wakeapp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -11,6 +17,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -22,7 +29,7 @@ public class IndexController {
     @FXML private TextField arrivalTime;
 
     @FXML
-    private void handleButtonBerechnen(ActionEvent event) {
+    private void handleButtonBerechnen(ActionEvent event) throws IOException {
         String[] startAddress = startLocation.getText().split(",");
         String[] destAddress = destinationLocation.getText().split(",");
 
@@ -40,11 +47,14 @@ public class IndexController {
         endJSON.put("from", startLocationJSON);
         endJSON.put("to", destinationLocationJSON);
 
-        getTripTimeFromAPI(endJSON);
+        JSONObject tripTime = getTripTimeFromAPI(endJSON);
 
+        ResultController rc = new ResultController();
+        rc.ResultController();
+        //rc.setHours(tripTime.getString("hours"));
     }
 
-    private void getTripTimeFromAPI(JSONObject endJSON) {
+    private JSONObject getTripTimeFromAPI(JSONObject endJSON) {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpPost httpPost = new HttpPost("https://wakeapp.saaltofreak.de/api/searchAddress");
 
@@ -67,10 +77,10 @@ public class IndexController {
             String responseBody = httpClient.execute(httpPost, responseHandler);
             System.out.println("----------------------------------------");
             System.out.println(responseBody);
+            JSONObject responseJSON = new JSONObject(responseBody);
+            return responseJSON;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 }
